@@ -6,8 +6,10 @@ class Particle {
 
    // private Random rand;
 
-    private float xpos;
-    private float ypos;
+    private int xpos;
+    private int ypos;
+
+    private double distanceFromZero;
 
     private int xMoves = 0;
     private int yMoves= 0;
@@ -19,7 +21,7 @@ class Particle {
     private float width;
     private float height;
 
-    Particle(float xpos, float ypos, int colR, int colG, int colB) {
+    Particle(int xpos, int ypos, int colR, int colG, int colB) {
         this.xpos = xpos;
         this.ypos = ypos;
 
@@ -34,13 +36,16 @@ class Particle {
 
     }
 
-    public float getXpos() {
+
+    public int getXpos() {
         return xpos;
     }
 
+    public double getDistanceFromZero() {
+        return distanceFromZero;
+    }
 
-
-    public float getYpos() {
+    public int getYpos() {
         return ypos;
     }
 
@@ -106,4 +111,10 @@ class Particle {
 
 
     }
-}
+
+    public void calcDistanceFromZero (){
+        double distance = Math.sqrt(this.getXpos()^2+this.getYpos()^2);
+        this.distanceFromZero = distance;
+
+        }
+    }
